@@ -9,9 +9,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
+    "typeRoots": ["./node_modules/@types", "./@types"],
     "outDir": "./dist",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "types": ["express"]
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "@types/**/*.d.ts"],
   "exclude": ["node_modules"]
 }

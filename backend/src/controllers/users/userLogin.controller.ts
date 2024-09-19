@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { AppError, handleError } from "../../errors/appError";
 import userLoginService from '../../services/users/userLogin.service'
 
 const userLoginController = async (req: Request, res: Response) => {
@@ -11,15 +12,10 @@ const userLoginController = async (req: Request, res: Response) => {
 
         return res.status(201).json({token})
 
-    } catch (err) {
-
-        if (err instanceof Error) {
-
-            return res.status(401).send({
-                "error": err.name,
-                "message": err.message
-            })
-        }
+    } catch(error) {
+      if( error instanceof AppError){
+        handleError(error, res)
+      }
     }
 }
 
