@@ -12,8 +12,8 @@
     "typeRoots": ["./node_modules/@types", "./@types"],
     "outDir": "./dist",
     "baseUrl": "./src",
-    "types": ["express"]
+    "types": ["node", "express"] 
   },
-  "include": ["src/**/*.ts", "@types/**/*.d.ts"],
+  "include": ["./src/**/*.ts", "./@types/**/*.ts", "app.ts"],
   "exclude": ["node_modules"]
 }

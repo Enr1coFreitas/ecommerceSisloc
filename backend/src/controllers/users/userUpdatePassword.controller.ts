@@ -5,17 +5,17 @@ import { AppError, handleError } from "../../errors/appError";
 const userUpdatePasswordController = async (req: Request, res: Response) => {
 
     try {
-        const email = req.userEmail
+      const email = (req as Request & { userEmail: string }).userEmail;
 
-        const {password} = req.body
+      const {password} = req.body
 
-        if (!password) {
-            throw new Error("No password informed")
-        }
+      if (!password) {
+          throw new Error("No password informed")
+      }
 
-        const user =  await userUpdatePasswordService(email, password)
+      const user =  await userUpdatePasswordService(email, password)
 
-        return res.status(201).json({message: "Password updated!"})
+      return res.status(201).json({message: "Password updated!"})
 
     } catch(error) {
       if( error instanceof AppError){

@@ -4,7 +4,7 @@ import userListOneService from '../../services/users/userListOne.service'
 const userListOneController = async (req: Request, res: Response) => {
 
     try {
-        const email = req.userEmail
+        const email = (req as Request & { userEmail: string }).userEmail;
 
         const user =  await userListOneService(email)
 

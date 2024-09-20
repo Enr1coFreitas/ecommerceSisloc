@@ -5,7 +5,7 @@ const userDeleteSelfController = async (req: Request, res: Response) => {
 
     try {
 
-        const email = req.userEmail
+        const email = (req as Request & { userEmail: string }).userEmail;
 
         const user =  await userDeleteSelfService(email)
 
