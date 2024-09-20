@@ -1,5 +1,5 @@
 import express from 'express'
-import routes from './routes/user.routes';
+import { appRoutes } from './routes';
 
 import { Request, Response, NextFunction} from 'express'
 import { AppError } from './errors/appError';
@@ -7,7 +7,7 @@ import { AppError } from './errors/appError';
 const app = express()
 
 app.use(express.json())
-app.use(routes)
+appRoutes(app)
 
 app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
 

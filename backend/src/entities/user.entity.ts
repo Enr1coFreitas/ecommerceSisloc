@@ -17,7 +17,6 @@ export class User {
     @Column()
     password: string
 
-    // adicionar
     @OneToOne((type) => Cart, {
             eager: true
         })@JoinColumn()
